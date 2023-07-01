@@ -407,12 +407,41 @@ class Chapter_5():
         snowflake(t, 400, 4)
         turtle.done()
 
-
-                
-
-                
 chapter5 = Chapter_5
 #chapter5.one_1()
 #chapter5.two_1()
 #chapter5.three_1()
 #chapter5.six_1()
+
+class Chapter_6():
+    def three_2():
+        def convert_to_lowercase(string):
+            lowercase_string = ""
+            for char in string:
+                if char.isupper():
+                    lowercase_string += char.lower()
+                else:
+                    lowercase_string += char
+            return lowercase_string
+
+        def remove_spaces(string):
+            return string.replace(" ", "")
+
+        def is_palindrome(a):
+            length = len(a)
+            for i in range(length // 2):
+                if a[i] != a[length - 1 - i]:
+                    return False
+            return True
+
+        string = input('Enter string: ')
+        converted_string = convert_to_lowercase(string)
+        checked = remove_spaces(converted_string)
+
+        if is_palindrome(checked):
+            print(string + ' is a palindrome')
+        else:
+            print(string + ' is not a palindrome')
+                
+chapter6 = Chapter_6()
+chapter6.three_2()
