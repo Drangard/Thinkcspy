@@ -242,7 +242,7 @@ chapter3 = Chapter_3()
 #chapter3.two_4()
 #chapter3.two_5()
 #chapter3.three_1()
-chapter3.three_2()
+#chapter3.three_2()
 
 class Chapter_4():
     def two_1():
