@@ -1,7 +1,7 @@
 from __future__ import print_function, division
 import math
-import time
-#import turtle
+from time import time
+import turtle
 
 
 class Chapter_1():
@@ -227,12 +227,12 @@ class Chapter_3():
             do_twice(print_row)
             print_beams()
 
+
         def print_grid_twice():
             do_twice(print_grid)
-            print_beams()
-    print('3.3.2 >>')
-    #print_grid_twice()
-    print('if you see this tell endless')
+        print('3.3.2 >>')
+        print_grid_twice()
+        #print('if you see this tell endless')
 
 chapter3 = Chapter_3()
 #chapter3.one_1()
@@ -242,13 +242,78 @@ chapter3 = Chapter_3()
 #chapter3.two_4()
 #chapter3.two_5()
 #chapter3.three_1()
-#chapter3.three_2()
+chapter3.three_2()
 
 class Chapter_4():
-    def one_1():
+    def two_1():
         #involves turtle cant do it yet
+        t = turtle.Turtle()
+        t.speed(10)
+        turtle.bgcolor("blue")
+        colors = ["red", 'green', 'white']
+        t.shape('turtle')
+    
+        for i in range(36):
+            t.color(colors[i % len(colors)])
+            t.forward(100)
+            t.left(45)
+            t.forward(100)
+            t.left(135)
+            t.forward(100)
+            t.left(45)
+            t.forward(100)
+            t.left(135)
+            t.right(10)
 
+        t.hideturtle()
+        turtle.mainloop()
+
+    def three_1():
+        def draw_pie(t, n, r):
+
+            pie(t, n, r)
+            t.penup()
+            t.forward(r*2 + 10)
+            t.pendown()
+
+
+        def pie(t, n, r):
+
+            angle = 360.0 / n
+            for i in range(n):
+                triangle(t, r, angle/2)
+                t.left(angle)
+
+
+        def triangle(t, r, angle):
+            y = r * math.sin(angle * math.pi / 180)
+
+            t.right(angle)
+            t.forward(r)
+            t.left(90+angle)
+            t.forward(2*y)
+            t.left(90+angle)
+            t.forward(r)
+            t.left(180-angle)
+
+
+        link = turtle.Turtle()
+
+        link.penup()
+        link.back(130)
+        link.pendown()
+
+        size = 40
+        draw_pie(link, 9, size)
+
+    def four_1():
+        #have to draw the alphabet int turtle
         pass
+chapter4 = Chapter_4
+#chapter4.two_1()
+#chapter4.three_1()
+#chapter4.four_1()
+        
 
 class Chapter_5():
     def one_1(self):
