@@ -415,4 +415,4 @@ chapter5 = Chapter_5
 #chapter5.one_1()
 #chapter5.two_1()
 #chapter5.three_1()
-chapter5.six_1()
+#chapter5.six_1()
