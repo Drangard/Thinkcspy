@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 import math
-from time import time
+import datetime
 import turtle
 
 
@@ -340,9 +340,18 @@ chapter4 = Chapter_4
 #chapter4.two_1()
 #chapter4.three_1()
 #chapter4.four_1()
-chapter4.five_1()
+#chapter4.five_1()
         
 
 class Chapter_5():
-    def one_1(self):
-        pass
+    def one_1():
+        def clock():
+            current_time = datetime.datetime.now().strftime("%I:%M:%S %p")
+            print(current_time)
+        clock()
+
+    
+
+chapter5 = Chapter_5
+chapter5.one_1()
+
