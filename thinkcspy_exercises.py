@@ -1,4 +1,9 @@
+from __future__ import print_function, division
 import math
+import time
+#import turtle
+
+
 class Chapter_1():
     def one_1(self):
         print('1.1.1 >> Hello World!')
@@ -49,8 +54,7 @@ class Chapter_1():
             hours =  (minutes + seconds / 60) / 60
             pace = miles / hours
             print("1.2.3 >>", pace)
-        average_speed(self)
-
+        average_speed()
 
 chapter1 = Chapter_1()
 # Erase (#) to check answer
@@ -77,7 +81,7 @@ class Chapter_2():
     def two_1(self):
         r = 5
         radius = ((4/3) * math.pi * (r ** 3))
-        print(radius)
+        print('2.2.1 >>', radius)
 
     def two_2(self):
         cover_price = float(24.95)
@@ -87,8 +91,7 @@ class Chapter_2():
         discounted_cover_price = cover_price * store_discount
         total_cover_price = num_copies * discounted_cover_price
         wholesale_cost = total_cover_price + shipping_cost
-        print(wholesale_cost) 
-
+        print('2.2.2 >>', wholesale_cost) 
     def two_3(self):
         start_time_minutes = (6 * 60) + 52
         easy_pace_minutes = 8
@@ -100,7 +103,7 @@ class Chapter_2():
         arrival_time_minutes = start_time_minutes + easy_pace_total + tempo_pace_total
         arrival_hours = arrival_time_minutes // 60
         arrival_minuntes = arrival_time_minutes % 60
-        print(int(arrival_hours), ':', int(arrival_minuntes))
+        print('2.2.3 >>', int(arrival_hours), ':', int(arrival_minuntes))
 
 chapter2 = Chapter_2()
 #chapter2.one_1()
@@ -109,5 +112,144 @@ chapter2 = Chapter_2()
 #chapter2.two_3()
 
 class Chapter_3():
+    def one_1(self):
+        def right_justify(self):
+            name = "monty python"
+            result = name.rjust(17, ' ')
+            print('3.1.1 >> ', result)
+        right_justify()
+
+    def two_1(self):
+        def do_twice(f):
+            f(self)
+            f(self)
+        def print_monty(self):
+            print('3.2.1')
+            print('monty python')
+        do_twice(print_monty)
+
+    def two_2(self):
+        def print_twice():
+            print('spam')
+            print('spam')
+        print_twice()
+
+    def two_3(self):
+        def print_twice():
+            print('spam')
+            print('spam')
+
+        def do_twice(f):
+            f()
+            f()
+        print('3.2.3')
+        do_twice(print_twice)
+
+    def two_4(self):
+        def print_twice():
+            print('spam')
+            print('spam')
+
+        def do_twice(f):
+            f()
+            f()
+
+        def do_four():
+            do_twice(print_twice)
+            do_twice(print_twice)
+        print('3.2.4 >>')
+        do_four()
+
+    def three_1(self):
+
+        def do_twice(f):
+            f()
+            f()
+
+        def do_four(f):
+            do_twice(f)
+            do_twice(f)
+
+        def print_beam():
+            print('+ - - - -', end=' ')
+
+        def print_post():
+            print ('|        ', end=' ')
+
+        def print_beams():
+            do_twice(print_beam)
+            print('+')
+
+        def print_posts():
+            do_twice(print_post)
+            print('|')
+
+        def print_row():
+            print_beams()
+            do_four(print_posts)
+
+        def print_grid():
+            do_twice(print_row)
+            print_beams()
+
+        print('3.3.1 >>')
+        print_grid()
+
+    def three_2(self):
+
+        def do_twice(f):
+            f()
+            f()
+
+        def do_four(f):
+            do_twice(f)
+            do_twice(f)
+
+        def print_beam():
+            print('+ - - - -', end=' ')
+
+        def print_post():
+            print ('|        ', end=' ')
+
+        def print_beams():
+            do_twice(print_beam)
+            print('+')
+
+        def print_posts():
+            do_twice(print_post)
+            print('|')
+
+        def print_row():
+            print_beams()
+            do_four(print_posts)
+
+        def print_grid():
+            do_twice(print_row)
+            print_beams()
+
+        def print_grid_twice():
+            do_twice(print_grid)
+            print_beams()
+    print('3.3.2 >>')
+    #print_grid_twice()
+    print('if you see this tell endless')
+
+chapter3 = Chapter_3()
+#chapter3.one_1()
+#chapter3.two_1()
+#chapter3.two_2()
+#chapter3.two_3()
+#chapter3.two_4()
+#chapter3.two_5()
+#chapter3.three_1()
+#chapter3.three_2()
+
+class Chapter_4():
     def one_1():
+        #involves turtle cant do it yet
+
+        pass
+
+class Chapter_5():
+    def one_1(self):
         pass
