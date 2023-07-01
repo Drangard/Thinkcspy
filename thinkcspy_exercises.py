@@ -309,10 +309,38 @@ class Chapter_4():
     def four_1():
         #have to draw the alphabet int turtle
         pass
+
+    def five_1():
+        def spiral():
+            t = turtle.Turtle()
+            t.speed(10)
+            t.penup()
+            t.goto(-100, 0)
+            t.pendown()
+            side_length = 1
+            next_side_length = 1
+            angle = 90
+            next_angle = 90
+
+            while side_length < 1000:
+                t.forward(side_length)
+                t.right(angle)
+                temp = next_side_length
+                next_side_length = side_length + next_side_length
+                side_length = temp
+
+                angle = 180 - ((180 * next_angle) / (angle + next_angle))
+                next_angle = 180 - angle
+            turtle.mainloop()
+        spiral()
+
+    
+
 chapter4 = Chapter_4
 #chapter4.two_1()
 #chapter4.three_1()
 #chapter4.four_1()
+chapter4.five_1()
         
 
 class Chapter_5():
