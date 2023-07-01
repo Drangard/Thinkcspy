@@ -350,8 +350,69 @@ class Chapter_5():
             print(current_time)
         clock()
 
+    def two_1():
+        def fermats_last_theorem(a, b, c, n):
+            if n > 2 and a ** n + b ** n == c ** n:
+                print('Holy smokes, Fermat was wrong!')
+            else:
+                print("No, that doesn’t work.")
+
+        a = int(input('what is a?'))
+        b = int(input('what is b?'))
+        c = int(input('what is c?'))
+        n = int(input('what is n?'))
+
+        fermats_last_theorem(a, b, c, n)
+
+    def three_1():
+        def is_triangle(a, b, c):
+            if a + b > c and b + c > a and c + a > b:
+                return True
+            else:
+                return False
     
+        stick_a = float(input('Input stick a.'))
+        stick_b = float(input('Input stick b.'))
+        stick_c = float(input('Input stick c.'))
 
+        if is_triangle(stick_a, stick_b, stick_c):
+            print('they can form a triangle.')
+        else:
+            print('they cannot make a triangle.')
+
+    def six_1():
+        def koch_curve(t, length, depth):
+            if depth == 0:
+                t.forward(length)
+            else:
+                koch_curve(t, length / 3, depth - 1)
+                t.left(60)
+                koch_curve(t, length / 3, depth - 1)
+                t.right(120)
+                koch_curve(t, length / 3, depth - 1)
+                t.left(60)
+                koch_curve(t, length / 3, depth - 1)
+
+        def snowflake(t, length, depth):
+            for i in range(3):
+                koch_curve(t, length, depth)
+                t.right(120)
+
+        t = turtle.Turtle()
+        t.speed(100)
+
+        t.penup()
+        t.goto(-200, 75)
+        t.pendown()
+        snowflake(t, 400, 4)
+        turtle.done()
+
+
+                
+
+                
 chapter5 = Chapter_5
-chapter5.one_1()
-
+#chapter5.one_1()
+#chapter5.two_1()
+#chapter5.three_1()
+chapter5.six_1()
