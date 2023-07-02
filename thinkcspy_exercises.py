@@ -657,10 +657,52 @@ class Chapter_9():
         letters = input('Enter letters to filter words: '  )
         uses_only(text_file, letters)
 
+    def five_1():
+        with open(text_file, 'r') as file:
+            words = file.read().split()
+        def use_all(text_file, letters):
+            filtered_list = []
+            for word in words:
+                contains_letter = True
+                for letter in letters:
+                    if letter not in word:
+                        contains_letter = False
+                        break
+                if contains_letter:
+                    filtered_list.append(word)
+            for word in filtered_list:
+                print(word)
+
+        letters = input('Enter letters to add words: ')
+        use_all(text_file, letters)
+
+    def six_1():
+        with open(text_file, 'r') as file:
+            words = file.read().split()
+
+        def is_abecedarian(text_file, word):
+            previous = word[0]
+            filtered_list = []
+            for word in words:
+                thingy = True    
+                for c in word:
+                    if c < previous:
+                        return False
+                    previous = c
+                return True
+                if thingy:
+                    filtered_list.append(word)
+            for word in filtered_list:
+                print(word)
+        is_abecedarian(text_file, ord)
+            
+
 chapter9 = Chapter_9
 #chapter9.one_1()
 #chapter9.two_1()
 #chapter9.three_1()
 #chapter9.four_1()
 #chapter9.five_1()
+chapter9.six_1()
+
 
