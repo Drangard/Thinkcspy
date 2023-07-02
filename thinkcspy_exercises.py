@@ -1,4 +1,5 @@
 from __future__ import print_function, division
+text_file = 'words.txt'
 import math
 import datetime
 import turtle
@@ -442,6 +443,224 @@ class Chapter_6():
             print(string + ' is a palindrome')
         else:
             print(string + ' is not a palindrome')
-                
-chapter6 = Chapter_6()
-chapter6.three_2()
+
+    def four_1():
+        def is_power_of(a, b):
+            if a <= 0 or b <= 0:
+                return False
+    
+            while a != 1:
+                if a % b != 0:
+                    return False
+                a = a / b
+            return True
+
+        a = float(input('What is a?'))
+        b = float(input('What is b?'))
+
+        print(is_power_of(a, b))  
+
+    def five_1():
+        def find_gcd(a, b):
+            while b != 0:
+                a, b = b, a % b
+            return a
+
+        num1 = float(input('input a. '))
+        num2 = float(input('input b. '))
+
+        gcd = find_gcd(num1, num2)
+        print('the gcd of ', num1, ' and ', num2, 'is', gcd )
+
+chapter6 = Chapter_6
+#chapter6.three_2()
+#chapter6.four_1()
+#chapter6.five_1()
+
+class Chapter_7():
+    def one_1():
+        def mysqrt(x):
+         return x ** 0.5
+
+        def abs_diff(a,b):
+            return abs(a - b)
+
+        print("Number\t\tmysqrt\t\tmath.sqrt\tDifference")
+        print('------------------------------------------------------')
+
+        a = 1
+        a_max = 10
+
+        while a <= a_max:
+            mysqrt_result = mysqrt(a)
+            math_sqrt_result = math.sqrt(a)
+            difference = abs_diff(mysqrt_result, math_sqrt_result)
+
+            print(f"{a}\t\t{mysqrt_result:.4f}\t\t{math_sqrt_result:.4f}\t\t{difference:.4f}")
+            a += 1
+
+    def two_1():
+        def eval_loop():
+            while True:
+                user_input = input('Enter an expression. or (exit) to exit >>')
+
+                if user_input == "exit":
+                    break
+
+                try:
+                    result = eval(user_input)
+                    print('result:', result)
+                except Exception as e:
+                    print("error:", e)
+                    
+        eval_loop()
+
+    def three_1():
+        def formula():
+            k = 0
+            y = 0
+            x = (2 * (math.sqrt(2))) / 9801
+            while True:
+        
+                numerator = math.factorial(4 * k) * (1103 + (26390 * k))
+                denominator = (math.factorial(k) ** 4) * (366 ** (4 * k))
+        
+                a = x * (numerator / denominator)
+                y += numerator / denominator
+
+                if abs(a) < 1e-15:
+                    break
+                k += 1
+    
+            return 1 / (x * y)
+
+        print(formula())
+
+chapter7 = Chapter_7
+#chapter7.one_1()
+#chapter7.two_1()
+#chapter7.three_1()
+
+class Chapter_8():
+
+    def two_1():
+
+        def count_letter(word, letter):
+            count = 0
+            for char in word:
+                if char == letter:
+                    count += 1
+            return count
+
+        word = "banana"
+        letter = "a"
+        count = count_letter(word, letter)
+        print(count)
+
+        count_letter(word, letter)
+    
+    def three_1():
+        #im not sure if this is on a techicality or if its legaly on one line.
+        a = str(input('Is it a palendrome? >>>')); print(a.lower() == a.lower()[::-1])
+
+    def five_1():
+        def cipher(text,shift):
+            encrypted_text=""
+
+            for char in text:
+                if char.isalpha():
+                    if char.isupper():
+                        start = ord('A')
+                    else:
+                        start = ord('a')
+
+                    encrypted_char = chr((ord(char) - start + shift) % 26 + start)
+                    encrypted_text += encrypted_char
+                else:
+                    encrypted_text += encrypted_char
+
+            return encrypted_text
+
+        text = str(input('What do you want to encrypt >>> '))
+        shift = int(input("give me a number >>> "))
+        encrypted_text = cipher(text, shift)
+        print(encrypted_text)
+
+chapter8 = Chapter_8
+#chapter8.two_1()
+#chapter8.three_1()
+#chapter8.five_1()
+
+class Chapter_9():
+    def one_1():
+        def long_words(text_file):
+            with open(text_file, 'r') as file:
+                wordlist = file.read().split()
+
+                for word in wordlist:
+                    if len(word) > 20:
+                        print(word)
+        long_words(text_file)
+
+    def two_1():
+        def no_e(text_file):
+            with open(text_file, 'r') as file:
+                words = file.read().split()
+                total_words = len(words)
+                words_without_e = []
+
+                for word in words:
+                    if 'e' not in word:
+                        words_without_e.append(word)
+
+                percentage_without_e = (len(words_without_e) / total_words) * 100
+                print("words without the letter 'e' : ")
+                for word in words_without_e:
+                    print(word)
+
+                print(f"\nPercentage of words without 'e' : {percentage_without_e:.2f}%")
+        no_e(text_file)
+
+    def three_1():
+        with open(text_file, 'r') as file:
+            words = file.read().split()
+        def avoids(text_file, letters):
+            filtered_list = []
+            for word in words:
+                contains_letter = False
+                for letter in letters:
+                    if letter in word:
+                        contains_letter = True
+                        break
+                if not contains_letter:
+                    filtered_list.append(word)
+            for word in filtered_list:
+                print(word)
+
+        letters = input('Enter letters to remove words: ')
+        avoids(text_file, letters)
+        
+    def four_1():
+        with open(text_file, 'r') as file:
+            word_list = file.read().splitlines()
+        
+        def uses_only(text_file, letters):
+            for word in word_list:
+                contains_only = True
+                for letter in word:
+                    if letter not in letters:
+                        contains_only = False
+                        break
+                if contains_only:
+                    print(word)
+
+        letters = input('Enter letters to filter words: '  )
+        uses_only(text_file, letters)
+
+chapter9 = Chapter_9
+#chapter9.one_1()
+#chapter9.two_1()
+#chapter9.three_1()
+#chapter9.four_1()
+#chapter9.five_1()
+
