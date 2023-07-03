@@ -680,22 +680,55 @@ class Chapter_9():
         with open(text_file, 'r') as file:
             words = file.read().split()
 
-        def is_abecedarian(text_file, word):
+        def is_abecedarian(word):
             previous = word[0]
-            filtered_list = []
+            for c in word:
+                if c < previous:
+                    return False
+                previous = c
+            return True
+        
+        filtered_list = []
+        for word in words:
+            if is_abecedarian(word):
+                filtered_list.append(word)
+        
+        for word in filtered_list:
+            print(word)
+
+    def seven_1():
+        with open(text_file, 'r') as file:
+            words = file.read().split()
+
+        def triple_consecutive(words):
             for word in words:
-                thingy = True    
-                for c in word:
-                    if c < previous:
-                        return False
-                    previous = c
-                return True
-                if thingy:
-                    filtered_list.append(word)
-            for word in filtered_list:
-                print(word)
-        is_abecedarian(text_file, ord)
-            
+                for i in range(len(word) - 5):
+                    if word[i] == word[i+1] and word[i+2] == word[i+3] and word[i+4] == word[i+5]:
+                        print(word)
+                        break
+        triple_consecutive(words)
+
+    def eight_1():
+        def is_palindrome(num, a, b):
+            num_str = str(num)[a:a + b]
+            return num_str[::-1] == num_str
+        
+        def test(num):
+            return(is_palindrome(num, 2, 4) and is_palindrome(num + 1, 1, 5) and is_palindrome(num + 2, 1, 4) and is_palindrome(num + 3, 0, 6))
+
+        def test_all():
+            num = 100000
+            while num <= 999999:
+                if test(num):
+                    print(num)
+                num = num + 1
+        test_all()
+        print()
+        #even the code from the link isnt working idk what to do when i get better ill redo this one
+
+    def nine_1():
+        pass
+
 
 chapter9 = Chapter_9
 #chapter9.one_1()
@@ -703,6 +736,8 @@ chapter9 = Chapter_9
 #chapter9.three_1()
 #chapter9.four_1()
 #chapter9.five_1()
-chapter9.six_1()
-
+#chapter9.six_1()
+#chapter9.seven_1()
+#chapter9.eight_1()
+#chapter9.nine_1()
 
