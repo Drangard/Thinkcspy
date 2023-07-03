@@ -55,7 +55,7 @@ class Chapter_1():
             hours =  (minutes + seconds / 60) / 60
             pace = miles / hours
             print("1.2.3 >>", pace)
-        average_speed()
+        average_speed(self)
 
 chapter1 = Chapter_1()
 # Erase (#) to check answer
@@ -66,7 +66,7 @@ chapter1 = Chapter_1()
 #chapter1.one_5()
 #chapter1.two_1()
 #chapter1.two_2()
-#chapter1.two_3()
+chapter1.two_3()
 
 
 class Chapter_2():
