@@ -776,15 +776,18 @@ chapter9 = Chapter_9
 
 class Chapter_10():
     def one_1():
-        t = [1, 2, 3]
-        #t = [[1, 2], [3], [4, 5, 6]]
-        def add_all(t):
+        #t = [1, 2, 3]
+        t = [[1, 2], [3], [4, 5, 6]]
+        def nested_sum(t):
             total = 0
             for x in t:
-                total += x
+                if isinstance(x, list):
+                    total += nested_sum(x)
+                else:
+                    total += x
             return total
-        result = add_all(t)
+        result = nested_sum(t)
         print(result)
 
 chapter10 = Chapter_10
-chapter10.one_1()
+#chapter10.one_1()
