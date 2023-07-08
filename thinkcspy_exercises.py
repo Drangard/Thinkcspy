@@ -832,10 +832,10 @@ class Chapter_10():
         print(t)
 
     def five_1():
-        t = [1, 2, 3, 4]
-        #t = [2, 1, 3, 4]
+        #T = [1, 2, 3, 4]
+        t = [2, 1, 3, 4]
         def is_sorted(t):
-            a = t.sort()
+            a = sorted(t)
             if t == a:
                 print('Is sorted')
             else:
@@ -847,4 +847,4 @@ chapter10 = Chapter_10
 #chapter10.two_1()
 #chapter10.three_1()
 #chapter10.four_1()
-chapter10.five_1()
+#chapter10.five_1()
