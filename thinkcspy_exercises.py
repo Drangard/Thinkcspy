@@ -783,8 +783,8 @@ class Chapter_10():
             for x in t:
                 total += x
             return total
-            print()
-        add_all(t)
+        result = add_all(t)
+        print(result)
 
 chapter10 = Chapter_10
 chapter10.one_1()
