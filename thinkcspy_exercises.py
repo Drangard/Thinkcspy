@@ -789,5 +789,62 @@ class Chapter_10():
         result = nested_sum(t)
         print(result)
 
+    def two_1():
+        t = [1, 2, 3]
+        def cumsum(t):
+            total = 0
+            result = []
+            for x in t:
+                if isinstance(x, list):
+                    total += nested_sum(x)
+                    result.append(total)
+                else:
+                    total += x
+                    result.append(total)
+                
+            return result
+        result = cumsum(t)
+        print(result)
+
+    def three_1():
+        t = [1, 2, 3, 4]
+        def middle(t):
+            length = len(t)
+            if length % 2 == 0:
+                a = length // 2 - 1
+                a2 = length // 2
+                c = [t[a], t[a2]]
+            else:
+                b = length // 2
+                c = [t[c]]
+            print(c)
+
+        middle(t)
+    
+    def four_1():
+        t = [1, 2, 3, 4]
+        def chop(t):
+            t.pop(0)
+            t.pop(-1)
+            return None
+
+        chop(t)
+        print(t)
+
+    def five_1():
+        t = [1, 2, 3, 4]
+        #t = [2, 1, 3, 4]
+        def is_sorted(t):
+            a = t.sort()
+            if t == a:
+                print('Is sorted')
+            else:
+                print('Is not sorted')
+        is_sorted(t)
+
 chapter10 = Chapter_10
 #chapter10.one_1()
+#chapter10.two_1()
+#chapter10.three_1()
+#chapter10.four_1()
+chapter10.five_1()
