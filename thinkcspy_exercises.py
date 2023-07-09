@@ -3,6 +3,7 @@ text_file = 'words.txt'
 import math
 import datetime
 import turtle
+import random
 
 
 class Chapter_1():
@@ -851,6 +852,89 @@ class Chapter_10():
             else:
                 print('Is not an anagram')
         is_anagram()
+
+    def seven_1():
+        a = [1, 2, 2, 3, 4]
+        #a = [1, 2, 3, 4, 5]
+        def has_duplicates(a):
+            if len(a) != len(set(a)):
+                return True
+                
+            else:
+                return False
+        
+        print(has_duplicates(a))
+        
+    def eight_1():
+        
+        def birthday_paradox(num_sims, num_people):
+            duplicates = 0
+            for i in range(num_sims):
+                birthdays = set()
+                for i in range(num_people):
+                    birthday = random.randint(1, 365)
+                    if birthday in birthdays:
+                        duplicates += 1
+                        break
+                    birthdays.add(birthday)
+
+            probability = 1 -  (duplicates / num_sims)
+            return probability
+        
+        tests = 10000
+        people = 23
+        probability = birthday_paradox(tests, people)
+        print(f'{people} {tests} {probability * 100}')
+    
+    def nine_1():
+        def test(text_file):
+            words = []
+            with open(text_file, 'r') as file:
+                for line in file:
+                    word = line.strip()
+                    words.append(word)
+            return words
+
+        result = test(text_file)
+        print(result)
+
+    def nine_2():
+        def test(text_file):
+            words = []        
+            with open(text_file, 'r') as file:
+                for line in file:
+                    word = line.strip()
+                    words = words + [word]
+            return words
+    
+        result = test(text_file)
+        print(result)
+    
+    def ten_1():
+        pass
+
+    def eleven_1():
+        with open(text_file, 'r') as file:
+            words = file.read().split()
+        def reverse_pairs(words):
+            reverse = []
+            for i in range(len(words)):
+                for j in range(i + 1, len(words)):
+                    word1 = words[i]
+                    word2 = words[j]
+                    if word1 == word2[::-1]:
+                        reverse.append((word1, word2))
+            for pair in reverse:
+                print(pair[0], pair[1])
+
+        result = reverse_pairs(words)
+        print(result)
+            
+            
+
+
+    
+
 chapter10 = Chapter_10
 #chapter10.one_1()
 #chapter10.two_1()
@@ -858,3 +942,8 @@ chapter10 = Chapter_10
 #chapter10.four_1()
 #chapter10.five_1()
 #chapter10.six_1()
+#chapter10.seven_1()
+#chapter10.eight_1()
+#chapter10.nine_1()
+#chapter10.nine_2()
+chapter10.eleven_1()
