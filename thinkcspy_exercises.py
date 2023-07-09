@@ -842,9 +842,19 @@ class Chapter_10():
                 print('Is not sorted')
         is_sorted(t)
 
+    def six_1():
+        def is_anagram():
+            a = str(input('Give me a word >>>'))
+            b = str(input('Give me another word >>>'))
+            if sorted(a) == sorted(b):
+                print('Is an anagram')
+            else:
+                print('Is not an anagram')
+        is_anagram()
 chapter10 = Chapter_10
 #chapter10.one_1()
 #chapter10.two_1()
 #chapter10.three_1()
 #chapter10.four_1()
 #chapter10.five_1()
+#chapter10.six_1()
