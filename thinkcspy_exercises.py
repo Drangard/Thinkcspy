@@ -958,8 +958,29 @@ class Chapter_10():
         result = reverse_pairs(words)
         for pair in result:
             print(pair[0], pair[1])
-            
-            
+
+    def twelve_1():
+        #this one takes way too long
+        with open(text_file, 'r') as file:
+                words = file.read().split()
+        def find_interlocking_pairs(words):
+            interlocking_pairs = []
+
+            for i in range(len(words)):
+                for j in range(i + 1, len(words)):
+                    combined_words = words[i] + words[j]
+                
+                    if combined_words in words:
+                        pair = (words[i], words[j], combined_words)
+                        interlocking_pairs.append(pair)
+
+            return interlocking_pairs
+        pairs = find_interlocking_pairs(words)    
+
+        for pair in pairs:
+            word1, word2, combined_words = pair
+            print(f'{word1}, {word2}, {combined_words}')
+
 chapter10 = Chapter_10
 #chapter10.one_1()
 #chapter10.two_1()
@@ -973,7 +994,7 @@ chapter10 = Chapter_10
 #chapter10.nine_2()
 #chapter10.ten_1()
 #chapter10.eleven_1()
-
+chapter10.twelve_1()
 
 
 
