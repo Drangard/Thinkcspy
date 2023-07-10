@@ -911,11 +911,37 @@ class Chapter_10():
         print(result)
     
     def ten_1():
-        pass
-
-    def eleven_1():
         with open(text_file, 'r') as file:
-            words = file.read().split()
+                words = file.read().split()
+        def find_word(target_word, words):
+            left = 0
+            right = len(words) - 1
+
+            while left <= right:
+                mid = (left + right) // 2
+                current_word = words[mid].strip()
+
+                if current_word == target_word:
+                    return mid
+                elif current_word < target_word:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+
+            return-1
+
+        target = input('Give me a word. >>> ')
+        
+        result = find_word(target, words)
+        if result == -1:
+            print(target, 'not found')
+        else:
+            print(target, 'Found')
+
+    
+    def eleven_1():
+    # this one does work it just takes 20 minutes  
+        
         def reverse_pairs(words):
             reverse = []
             for i in range(len(words)):
@@ -924,17 +950,16 @@ class Chapter_10():
                     word2 = words[j]
                     if word1 == word2[::-1]:
                         reverse.append((word1, word2))
-            for pair in reverse:
-                print(pair[0], pair[1])
+            return reverse
+
+        with open(text_file, 'r') as file:
+            words = file.read().split() 
 
         result = reverse_pairs(words)
-        print(result)
+        for pair in result:
+            print(pair[0], pair[1])
             
             
-
-
-    
-
 chapter10 = Chapter_10
 #chapter10.one_1()
 #chapter10.two_1()
@@ -946,4 +971,9 @@ chapter10 = Chapter_10
 #chapter10.eight_1()
 #chapter10.nine_1()
 #chapter10.nine_2()
-chapter10.eleven_1()
+#chapter10.ten_1()
+#chapter10.eleven_1()
+
+
+
+
