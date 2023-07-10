@@ -994,7 +994,7 @@ chapter10 = Chapter_10
 #chapter10.nine_2()
 #chapter10.ten_1()
 #chapter10.eleven_1()
-chapter10.twelve_1()
+#chapter10.twelve_1()
 
 
 
