@@ -4,7 +4,7 @@ import math
 import datetime
 import turtle
 import random
-
+import sys
 
 class Chapter_1():
     def one_1(self):
@@ -68,7 +68,6 @@ chapter1 = Chapter_1()
 #chapter1.two_1()
 #chapter1.two_2()
 #chapter1.two_3()
-
 
 class Chapter_2():
     def one_1(self):
@@ -229,7 +228,6 @@ class Chapter_3():
             do_twice(print_row)
             print_beams()
 
-
         def print_grid_twice():
             do_twice(print_grid)
         print('3.3.2 >>')
@@ -278,14 +276,12 @@ class Chapter_4():
             t.forward(r*2 + 10)
             t.pendown()
 
-
         def pie(t, n, r):
 
             angle = 360.0 / n
             for i in range(n):
                 triangle(t, r, angle/2)
                 t.left(angle)
-
 
         def triangle(t, r, angle):
             y = r * math.sin(angle * math.pi / 180)
@@ -297,7 +293,6 @@ class Chapter_4():
             t.left(90+angle)
             t.forward(r)
             t.left(180-angle)
-
 
         link = turtle.Turtle()
 
@@ -336,15 +331,12 @@ class Chapter_4():
             turtle.mainloop()
         spiral()
 
-    
-
 chapter4 = Chapter_4
 #chapter4.two_1()
 #chapter4.three_1()
 #chapter4.four_1()
 #chapter4.five_1()
         
-
 class Chapter_5():
     def one_1():
         def clock():
@@ -416,6 +408,21 @@ chapter5 = Chapter_5
 #chapter5.six_1()
 
 class Chapter_6():
+
+    def two_1():
+        def ackermann_func(m, n):
+            if m == 0:
+                return n + 1
+            elif m > 0 and n == 0:
+                return ackermann_func(m - 1, 1)    
+            elif m > 0 and n > 0:
+                return ackermann_func(m - 1, ackermann_func(m, n - 1))
+        
+        num_1 = float(input('Enter first number. >>>'))
+        num_2 = float(input('Enter second number. >>>'))
+
+        print(ackermann_func(num_1, num_2))
+
     def three_2():
         def convert_to_lowercase(string):
             lowercase_string = ""
@@ -474,6 +481,7 @@ class Chapter_6():
         print('the gcd of ', num1, ' and ', num2, 'is', gcd )
 
 chapter6 = Chapter_6
+#chapter6.two_1()
 #chapter6.three_2()
 #chapter6.four_1()
 #chapter6.five_1()
@@ -762,8 +770,6 @@ class Chapter_9():
             age_check(18, True)
         age_is_palendrome()
 
-
-
 chapter9 = Chapter_9
 #chapter9.one_1()
 #chapter9.two_1()
@@ -938,7 +944,6 @@ class Chapter_10():
         else:
             print(target, 'Found')
 
-    
     def eleven_1():
     # this one does work it just takes 20 minutes  
         
@@ -996,5 +1001,159 @@ chapter10 = Chapter_10
 #chapter10.eleven_1()
 #chapter10.twelve_1()
 
+class Chapter_11():
+
+    def one_1():
+        def read_words(text_file):
+            word_dict = {}
+
+            with open(text_file, 'r') as file:
+                for line in file:
+                    words = line.split()
+                    for word in words:
+                        word_dict[word] = None
+            return word_dict
+    
+        def check_word(word, word_dict):
+            if word in word_dict:
+                print("True")
+            else:
+                print('False')
+
+        word_dict = read_words(text_file)
+        input_word = input('Enter a word. >>> ')
+        check_word(input_word, word_dict)
+        read_words(text_file)
+
+    def two_1():
+        def invert_dict(dict_a):
+            inveted_dict = {}
+            for key, val in dict_a.items(): 
+                inveted_dict.setdefault(val, []).append(key)
+            return inveted_dict
+
+        dict_a = {"a": 1, "b": 2, "c": 3, "z": 1,}
+        inverted_dict = invert_dict(dict_a)
+        for val, keys in inverted_dict.items():
+            print(val, keys)
+        
+    def three_1():
+        sys.setrecursionlimit(50000)
+        memo = {}
+        def ackermann_func(m, n):
+            
+            if (m, n) in memo:
+                return memo[(m, n)]
+
+            if m == 0:
+                return n + 1
+            elif m > 0 and n == 0:
+                return ackermann_func(m - 1, 1)    
+            elif m > 0 and n > 0:
+                return ackermann_func(m - 1, ackermann_func(m, n - 1))
+
+            memo[(m, n)] = result 
+            return mysqrt_result
+
+        num_1 = float(input('Enter first number. >>>'))
+        num_2 = float(input('Enter second number. >>>'))
+
+        print(ackermann_func(num_1, num_2))
+
+    def four_1():
+        a = [1, 2, 3, 4, 5, 4]
+        def has_duplicates(a):
+            dict_b = {}
+            for i in a:
+                if i in dict_b:
+                    return True
+                else:
+                    dict_b[i] = 1
+            return False
+
+        print(has_duplicates(a))
+
+    def five_1():
+        def rotate_word(word):
+            rotated_word = ""
+            for char in word:
+                if char.isalpha():
+                    if char.isupper():
+                        start = ord('A')
+                    else:
+                        start = ord('a')
+
+                    rotated_char = chr((ord(char) - start + 1) % 26 + start)
+                    rotated_word += rotated_char
+                else:
+                    rotated_word += char
+            return rotated_word
 
 
+        def find_rotate_pairs(file_path):
+            rotate_pairs = []
+
+            with open(file_path, 'r') as file:
+                    words = set(file.read().split())
+                    for word in words:
+                        rotated_word = rotate_word(word)
+                        if rotated_word != word and rotated_word in words:
+                            rotate_pairs.append((word, rotated_word))
+
+            return rotate_pairs
+
+
+        file_path = 'words.txt'
+        rotate_pairs = find_rotate_pairs(file_path)
+        if len(rotate_pairs) == 0:
+            print('No rotate pairs found.')
+        else:
+            for pair in rotate_pairs:
+                print(pair[0], pair[1])
+
+    def six_1():
+
+        def find_homophone_pairs(word_list):
+            homophone_pairs = []
+            word_set = set(word_list)
+
+            for word in word_list:
+                if len(word) == 5:
+                    removed_1 = word[1:]
+                    removed_2 = word[0] + word[2:]
+                    if removed_1 in word_set and removed_2 in word_set:
+                        homophone_pairs.append(word)
+
+            return homophone_pairs
+
+
+        def remove_letter(word, index):
+            return word[:index] + word[index + 1:]
+
+        with open('words.txt', 'r') as file:
+            word_list = file.read().lower().split()
+
+        solution_pairs = find_homophone_pairs(word_list)
+
+        if len(solution_pairs) > 0:
+            print("Solution pairs:")
+            for word in solution_pairs:
+                print(word)
+        else:
+            print("No solution pairs found.")
+
+
+chapter11 = Chapter_11
+#chapter11.one_1()
+#chapter11.two_1()
+#chapter11.three_1()
+#chapter11.four_1()
+#chapter11.five_1()
+#chapter11.six_1()
+
+class Chapter_12():
+    def one_1():
+        pass
+
+chapter12 = Chapter_12
+chapter12.one_1()
